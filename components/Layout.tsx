@@ -13,9 +13,8 @@ export default function Layout({ children }: PropType) {
       <Header />
       <div className="grid md:grid-cols-sidebar">
         <Sidebar />
+        <Main />
       </div>
-
-      <Main />
       <main>{children}</main>
       <Footer />
     </div>
