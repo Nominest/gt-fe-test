@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header(): JSX.Element {
   return (
     <>
       <div className="flex justify-between px-4 pt-4">

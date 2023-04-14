@@ -7,7 +7,7 @@ type PropType = {
   children: ReactNode;
 };
 
-export default function Sidebar({ children }: PropType) {
+export default function Sidebar({ children }: PropType): JSX.Element {
   return (
     <div className="flex">
       <div className="fixed w-20 h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between">
