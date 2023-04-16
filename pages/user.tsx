@@ -2,9 +2,16 @@ import { iUser } from "@/util/user";
 import { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsPersonAdd } from "react-icons/bs";
+import UserForm from "@/components/UserForm";
 
 export default function User(): JSX.Element {
   const [users, setUsers] = useState<iUser[] | null>(null);
+  const [show, setShow] = useState(false);
+
+  const handler = () => {
+    setShow(show ? false : true);
+  };
 
   useEffect(() => {
     fetch("http://localhost:4200/user/all")
@@ -21,10 +28,14 @@ export default function User(): JSX.Element {
       <div className="p-4">
         <div className="w-full m-auto p-4 border rounded-lg bg-white overflow-y-auto">
           <div>
-            <button className="bg-gray-100 p-4 hover:bg-gray-200">
-              Add User
+            <button
+              onClick={handler}
+              className="flex gap-3 bg-gray-100 p-4 rounded-lg inline-block hover:bg-gray-200 cursor-pointers my-4"
+            >
+              Add User <BsPersonAdd size={23} />
             </button>
           </div>
+          {show ? <UserForm /> : <></>}
 
           <div className="my-3 p-2 grid md:grid-cols-5 sm:grid-cols-2 item-center justify-between cursor-pointer ">
             <span className="hidden md:grid">Овог</span>
